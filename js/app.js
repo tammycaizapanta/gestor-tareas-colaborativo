@@ -21,3 +21,37 @@ const manejarEliminarTareaMario = (event) => {
 if (marioListaTareas) {
     marioListaTareas.addEventListener("click", manejarEliminarTareaMario);
 }
+
+
+// --- Contador de tareas pendientes ---
+const marioContadorElemento = document.getElementById("contador");
+
+const actualizarContadorMario = () => {
+    if (!marioListaTareas || !marioContadorElemento) return;
+
+    const todasLasTareas = marioListaTareas.querySelectorAll("li");
+    let pendientes = 0;
+
+    todasLasTareas.forEach((tarea) => {
+        if (!tarea.classList.contains("completada")) {
+            pendientes++;
+        }
+    });
+
+    marioContadorElemento.textContent = pendientes;
+};
+
+if (marioListaTareas) {
+    const observadorTareasMario = new MutationObserver(() => {
+        actualizarContadorMario();
+    });
+
+    observadorTareasMario.observe(marioListaTareas, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ["class"]
+    });
+}
+
+actualizarContadorMario();
