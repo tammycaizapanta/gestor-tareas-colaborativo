@@ -99,7 +99,7 @@ h1 {
 
 #listaTareas li.completada {
   color: var(--texto-suave);
-  text-decoration: line-through;
+  
 }
 
 #listaTareas li.completada::before {
@@ -121,4 +121,10 @@ h1 {
   color: var(--texto);
   font-size: 0.85rem;
   cursor: pointer;
+}
+
+#listaTareas li.completada .btn-eliminar {
+  text-decoration: none;
+  text-decoration-line: none;
+  display: inline-block;
 }
