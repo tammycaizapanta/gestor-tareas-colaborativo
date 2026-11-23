@@ -1,4 +1,5 @@
 // ===== ZONA DANIELA: agregar y completar =====
+
 const formTarea = document.querySelector("#formTarea");
 const inputTarea = document.querySelector("#inputTarea");
 const listaTareas = document.querySelector("#listaTareas");
@@ -18,6 +19,7 @@ function agregarTarea(evento) {
     listaTareas.appendChild(tarea);
 
     inputTarea.value = "";
+    inputTarea.focus();
 }
 
 function marcarCompletada(evento) {
@@ -26,9 +28,9 @@ function marcarCompletada(evento) {
     }
 }
 
-if (formTarea && inputTarea && listaTareas) {
-    formTarea.addEventListener("submit", agregarTarea);
-    listaTareas.addEventListener("click", marcarCompletada);
-}
+formTarea.addEventListener("submit", agregarTarea);
+listaTareas.addEventListener("click", marcarCompletada);
+
+
 
 // ===== ZONA MARIO: eliminar y contador =====
