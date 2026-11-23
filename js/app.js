@@ -22,6 +22,11 @@ function agregarTarea(evento) {
     inputTarea.focus();
 }
 
+function marcarCompletada(evento) {
+    if (evento.target.tagName === "LI") {
+        evento.target.classList.toggle("completada");
+    }
+}
 
 
 formTarea.addEventListener("submit", agregarTarea);
