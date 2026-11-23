@@ -1,149 +1,124 @@
 :root {
-  --azul-claro: #c8d1d9;
-  --azul: #a5bcda;
-  --azul-medio: #8ca6c5;
-  --texto: #2f3e56;
-  --texto-suave: #7b8798;
-  --fondo-tarjeta: #f6f8fb;
+  --acento: #111111;
+  --fondo: #f2f2f2;
+  --tarjeta: #ffffff;
+  --texto: #111111;
+  --texto-suave: #8a8a8a;
 }
 
 * { box-sizing: border-box; }
 
 body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: linear-gradient(160deg, #eef2f8 0%, var(--azul-claro) 100%);
+  font-family: Arial, sans-serif;
+  background: var(--fondo);
   color: var(--texto);
   margin: 0;
   padding: 24px 16px;
-  min-height: 100vh;
 }
 
 .app {
   max-width: 480px;
   margin: 0 auto;
-  background: #fff;
-  border-radius: 24px;
-  box-shadow: 0 10px 30px rgba(140, 166, 197, 0.35);
-  overflow: hidden;
-  padding-bottom: 20px;
-}
-
-.encabezado {
-  background: linear-gradient(180deg, var(--azul) 0%, #dbe4f0 100%);
-  padding: 24px 24px 20px;
-}
-
-.etiqueta {
-  margin: 0;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: var(--texto);
-  opacity: 0.7;
+  background: var(--tarjeta);
+  padding: 28px 24px;
+  border-radius: 28px;
 }
 
 h1 {
-  margin: 4px 0 0;
-  font-size: 1.6rem;
-  color: var(--texto);
+  margin: 0 0 20px;
+  font-size: 1.9rem;
 }
 
 #formTarea {
   display: flex;
   gap: 10px;
-  padding: 20px 20px 0;
 }
 
 #inputTarea {
   flex: 1;
   min-width: 0;
-  padding: 12px 16px;
-  border: 1px solid var(--azul-claro);
-  border-radius: 14px;
-  background: var(--fondo-tarjeta);
+  padding: 14px 20px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--fondo);
   color: var(--texto);
   font-size: 1rem;
 }
 
-#inputTarea:focus {
-  outline: 2px solid var(--azul);
-  border-color: var(--azul);
-}
+#inputTarea:focus { outline: 2px solid var(--acento); }
 
 .btn-agregar {
-  width: 46px;
-  height: 46px;
+  width: 48px;
+  height: 48px;
   border: 0;
   border-radius: 50%;
-  background: var(--azul-medio);
-  color: #fff;
+  background: var(--acento);
+  color: #ffffff;
   font-size: 1.6rem;
-  line-height: 1;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(140, 166, 197, 0.5);
 }
 
-.btn-agregar:hover { background: var(--azul); }
-
 .resumen {
-  margin: 16px 20px 8px;
-  font-size: 0.9rem;
-  font-weight: 600;
+  margin: 20px 0 12px;
   color: var(--texto-suave);
 }
 
 #contador {
   display: inline-block;
-  min-width: 24px;
-  padding: 2px 8px;
-  border-radius: 12px;
-  background: var(--azul);
+  min-width: 26px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--fondo);
   color: var(--texto);
+  font-weight: bold;
   text-align: center;
 }
 
 #listaTareas {
   list-style: none;
   margin: 0;
-  padding: 0 20px;
+  padding: 0;
 }
 
 #listaTareas li {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-  padding: 12px 14px;
-  background: var(--azul-claro);
-  border-left: 6px solid var(--azul-medio);
-  border-radius: 12px;
+  padding: 12px 0;
   cursor: pointer;
-  transition: background 0.2s;
 }
 
-#listaTareas li:hover { background: #d6dde5; }
+#listaTareas li::before {
+  content: "";
+  flex: none;
+  width: 22px;
+  height: 22px;
+  margin-right: 14px;
+  border: 2px solid #cfcfcf;
+  border-radius: 50%;
+}
 
 #listaTareas li.completada {
-  background: var(--fondo-tarjeta);
-  border-left-color: var(--azul);
   color: var(--texto-suave);
   text-decoration: line-through;
 }
 
-.btn-eliminar {
-  padding: 4px 10px;
-  border: 0;
-  border-radius: 8px;
-  background: var(--azul-medio);
-  color: #fff;
+#listaTareas li.completada::before {
+  content: "\2713";
+  background: var(--acento);
+  border-color: var(--acento);
+  color: #ffffff;
   font-size: 0.8rem;
-  cursor: pointer;
+  line-height: 18px;
+  text-align: center;
 }
 
-.btn-eliminar:hover { background: #6f8bb0; }
-
-@media (max-width: 480px) {
-  body { padding: 12px 8px; }
-  h1 { font-size: 1.4rem; }
+.btn-eliminar {
+  margin-left: auto;
+  padding: 6px 14px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--fondo);
+  color: var(--texto);
+  font-size: 0.85rem;
+  cursor: pointer;
 }
